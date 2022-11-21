@@ -12,9 +12,9 @@ from picarx import Picarx
 from time import sleep
 import sys
 px = Picarx()
-# px = Picarx(grayscale_pins=['A0', 'A1', 'A2']) 
+px = Picarx(grayscale_pins=['A0', 'A1', 'A2']) 
 px.set_grayscale_reference(1700)  
-# px.grayscale.reference = 1700  
+px.grayscale.reference = 1700  
 last_state = None
 current_state = None
 px_power = int(sys.argv[1])
@@ -46,8 +46,11 @@ if __name__=='__main__':
         comm_batch = robot_comm.readlines()
         for instruction in comm_batch:
             instruct = instruction.strip().split()
+            print("Instruction: %s"%(instruction))
             px_power = int(instruct[0])
             timer = int(instruct[1])
+            print("Power:%s \n Timer:%s"%(px_power,timer)
+                  
             while distance < int(instruct[2]):
                 gm_val_list = px.get_grayscale_data()
                 gm_state = px.get_line_status(gm_val_list)
@@ -57,25 +60,25 @@ if __name__=='__main__':
                     last_state = gm_state
                 if gm_val_list[0] > gm_val_list[1] and gm_val_list[0] > 100: #left
                     px.set_dir_servo_angle(20)
-                    px.forward(px_power) 
+                    #px.forward(px_power) 
                     gm_state = 'left'
                     print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
                     last_state = 'left'
                 elif gm_val_list[1] < gm_val_list[2] and gm_val_list[2] > 100: #right
                     px.set_dir_servo_angle(-20)
-                    px.forward(px_power) 
+                    #px.forward(px_power) 
                     gm_state = 'right'
                     print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
                     last_state = 'right'
                 if gm_state == 'forward':
                     px.set_dir_servo_angle(0)
-                    px.forward(px_power) 
+                    #px.forward(px_power) 
                 elif gm_state == 'left':
                     px.set_dir_servo_angle(offset)
-                    px.forward(px_power) 
+                    #px.forward(px_power) 
                 elif gm_state == 'right':
                     px.set_dir_servo_angle(-offset)
-                    px.forward(px_power) 
+                    #px.forward(px_power) 
                 else:
                     outHandle()
                 distance += 1
