@@ -49,24 +49,19 @@ if __name__=='__main__':
         while distance<int(7000):
             gm_val_list = px.get_grayscale_data()
             gm_state = px.get_line_status(gm_val_list)
-            print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
+            #print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
             value_list.append(gm_val_list[0])
             value_list.append(gm_val_list[1])
             value_list.append(gm_val_list[2])
             l_sensor.append(gm_val_list[0])
             m_sensor.append(gm_val_list[1])
             r_sensor.append(gm_val_list[2])
-            #if 100<=gm_val_list[1] and gm_val_list[1]<=240:
-            #    print("white")
-            #elif 300>gm_val_list[1] and gm_val_list[1]>240:
-            #    print("green")
-            #else:
-            #    print("black")
-            #if gm_state != "stop":
-            #    last_state = gm_state
-            #
-            #else:
-            #    outHandle()
+            if(distance%4):
+                print("Reading.")
+            elif(distance%2):
+                print("Reading..")
+            else:
+                print("Reading...")
             distance += 1
         value_list.sort()
         r_sensor.sort()
