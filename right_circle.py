@@ -58,10 +58,10 @@ if __name__=='__main__':
                 last_state = 'right'
                 if gm_state == 'forward':
                     px.set_dir_servo_angle(0)
-                    #px.forward(px_power) 
+                    px.forward(px_power) 
                 elif gm_state == 'right':
                     px.set_dir_servo_angle(-offset)
-                    #px.forward(px_power) 
+                    px.forward(px_power) 
                 else:
                     outHandle()
                 distance += 1
