@@ -52,7 +52,7 @@ if __name__=='__main__':
             print("Power:%s \n Timer:%s"%(px_power,timer))
             while distance<int(instruct[2]):
                 px.set_dir_servo_angle(-20)
-                #px.forward(px_power) 
+                px.forward(px_power) 
                 gm_state = 'right'
                 #print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
                 last_state = 'right'
