@@ -46,7 +46,7 @@ def outHandle():
 
 if __name__=='__main__':
     try:
-        while distance<int(7000):
+        while distance<int(770):
             gm_val_list = px.get_grayscale_data()
             gm_state = px.get_line_status(gm_val_list)
             #print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
