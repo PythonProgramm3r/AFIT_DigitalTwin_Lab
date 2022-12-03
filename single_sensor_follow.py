@@ -41,16 +41,17 @@ def outHandle():
     sleep(timer)
 
 def GetServoOffset(sensorReturn):
-    minX = 0
-    maxX = 400
+    minX = 50
+    maxX = 280
     a = -20
     b = 20
     offsetAngle = ((b-a)*(sensorReturn-minX)/(maxX-minX))+a
     if  offsetAngle>20:
         offsetAngle=20
+    if  offsetAngle<-20:
+        offsetAngle=-20
     offsetAngle=round(offsetAngle, 0)
     return offsetAngle
-    
 
 
 if __name__=='__main__':
@@ -103,6 +104,6 @@ if __name__=='__main__':
             #     px.forward(px_power) 
             # else:
             #     outHandle()
-            # distance += 1
+            distance += 1
     finally:
         px.stop()

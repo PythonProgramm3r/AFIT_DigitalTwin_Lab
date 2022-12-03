@@ -75,8 +75,9 @@ if __name__=='__main__':
                 #print("gm_val_list[2] in black and transition == 1")
                 last_state = 'right'
             if (gm_val_list[0] not in black and gm_val_list[1] not in black and gm_val_list[2] not in black):
-                px.stop()
-                print("stop command")
+                #new park script
+                park = 0
+                park = os.system("sudo python3 park.py")
                 #print("gm_val_list[0] not in black and gm_val_list[1] not in black and gm_val_list[2] not in black %s"%transition)
             if gm_state == 'forward':
                 px.set_dir_servo_angle(0)
