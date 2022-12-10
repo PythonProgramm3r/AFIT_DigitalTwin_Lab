@@ -79,7 +79,7 @@ if __name__=='__main__':
             if (gm_val_list[0] in black and gm_val_list[1] in black and gm_val_list[2] in black):
                 px.set_dir_servo_angle(0)
                 px.backward(2)
-                sleep(.05)
+                sleep(.07)
                 #while parking == 0:
                 #    parking = subprocess.check_output([sys.executable, "park.py", "34"])     
                 #    print(parking)
