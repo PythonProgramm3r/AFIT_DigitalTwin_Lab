@@ -61,6 +61,7 @@ def newInstruction():
             duration = int(instruct[1])
         rb_timer = os.path.getmtime('/home/pi/picar-x/example/robot_comm.txt')
         robot_comm.close()
+
 if __name__=='__main__':
     try:
         transition = 0
