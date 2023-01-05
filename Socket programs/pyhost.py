@@ -15,7 +15,8 @@ while True:
         # Receive and print data 32 bytes at a time, as long as the client is sending something
         while True:
             data = connection.recv(32)
-            print("Received data: {}".format(data))
+            decoded = data.decode('utf-8')
+            print("Received data: {}".format(decoded))
             
             if not data:
                 break
