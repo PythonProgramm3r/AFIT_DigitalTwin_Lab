@@ -15,5 +15,5 @@ s.connect((host,port))
 print("socket connected!!!")
 
 msg=s.recv(1024)
-
-print("Message from server : " + msg)
+msgdecoded = msg.decode('utf-8')
+print("Message from server : " + msgdecoded)

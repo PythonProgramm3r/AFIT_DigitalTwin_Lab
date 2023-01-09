@@ -13,7 +13,11 @@ while True:
     try:
         print("Connected to client IP: {}".format(client))
         # Receive and print data 32 bytes at a time, as long as the client is sending something
+        mssages = ["sup", "not a lot", "bye"]
+        i = 0
         while True:
+            tcp_socket.sendall(mssages[i].encode('utf-8'))
+            i++
             data = connection.recv(32)
             decoded = data.decode('utf-8')
             print("Received data: {}".format(decoded))
