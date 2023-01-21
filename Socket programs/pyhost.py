@@ -13,7 +13,7 @@ while True:
     try:
         print("Connected to client IP: {}".format(client))
         # Receive and print data 32 bytes at a time, as long as the client is sending something
-        mssages = ["sup", "not a lot", "bye"]
+        mssages = ["drive 50", "park 0", "drive 20"]
         i = 0
         while True:
             if(i>2):
