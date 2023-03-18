@@ -52,9 +52,12 @@ def main():
         global move_completed
 
         # Square parameters
-        side_length = 0.5  # 0.5 m
-        max_speed = 64  # 50% of full speed
-
+        if(len(sys.argv)<3):
+            distance = 0.5  # 0.5 m
+            speed = 64  # 50% of full speed
+        else:
+            distance = sys.argv[2]
+            speed = sys.argv[1]
         rvr.wake()
 
         # Give RVR time to wake up
@@ -74,24 +77,24 @@ def main():
         drive_to_position_wait_to_complete(
             yaw_angle=-90,
             x=0,
-            y=side_length,
-            linear_speed=max_speed,
+            y=distance,
+            linear_speed=speed,
             flags=0,
         )
 
         drive_to_position_wait_to_complete(
             yaw_angle=-180,
-            x=side_length,
-            y=side_length,
-            linear_speed=max_speed,
+            x=distance,
+            y=distance,
+            linear_speed=speed,
             flags=0,
         )
 
         drive_to_position_wait_to_complete(
             yaw_angle=90,
-            x=side_length,
+            x=distance,
             y=0,
-            linear_speed=max_speed,
+            linear_speed=speed,
             flags=0,
         )
 
@@ -99,7 +102,7 @@ def main():
             yaw_angle=0,
             x=0,
             y=0,
-            linear_speed=max_speed,
+            linear_speed=speed,
             flags=0,
         )
 

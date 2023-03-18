@@ -24,20 +24,31 @@ def main():
     # Resetting our heading makes the current heading 0
     rvr.drive_control.reset_heading()
 
+    #set a speed initially by command line else default to 70
+    if sys.argv[1] is None:
+        velocity = 70
+    else:
+        velocity = sys.argv[1]
+        
+    if sys.argv[2] is None:
+        distance = sys.argv[2]
+    else:
+        distance = 5
+
     # This helper method drives RVR forward on the specified heading
     # and returns to our main function when the specified time has
     # elapsed.  This means it is a "blocking" function.
     rvr.drive_control.drive_forward_seconds(
         speed=64,       # This is out of 255, where 255 corresponds to 2 m/s
         heading=0,      # Valid heading values are 0-359
-        time_to_drive=1 # Driving duration in seconds
+        time_to_drive= distance # Driving duration in seconds
     )
 
     # Now back up.
     rvr.drive_control.drive_backward_seconds(
         speed=64,       # This is out of 255, where 255 corresponds to 2 m/s
         heading=0,      # Valid heading values are 0-359
-        time_to_drive=1 # Driving duration in seconds
+        time_to_drive= distance # Driving duration in seconds
     )
 
 
